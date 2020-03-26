@@ -2,28 +2,36 @@
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
 $country = 'bangladesh';
-
 curl_setopt($ch, CURLOPT_URL, 'https://covid19.mathdro.id/api/countries/' . urlencode($country));
 $result = curl_exec($ch);
 $data = json_decode($result, true);
-
 ?>
-
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>COVID-19</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> </head>
-
-<body>
-    <h1 class="text-center">COVID-19 Statistics of Bangladesh</h1>
-    <div class="card text-center">
-        <div class="card-body">
-            <?php if(!empty($data['confirmed'])): ?>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>COVID-19 Statistics of Bangladesh</title>
+        <link rel="shortcut icon" href="img/favicon.jpg">
+    </head>
+    <body>
+        <header>
+            <div class="overlay">
+                <h1 class="text-center">COVID-19 Statistics <br>of Bangladesh</h1>
+            </div>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="card text-center">
+            <div class="card-body">
+                <?php if(!empty($data['confirmed'])): ?>
                 <ul>
                     <li>Infected:
                         <?php echo number_format($data['confirmed']['value']) ?>
@@ -37,8 +45,12 @@ $data = json_decode($result, true);
                     <p class="card-text"><small class="text-muted">Last updated <?php echo $data['lastUpdate'] ?> ago</small></p>
                 </ul>
                 <?php endif; ?>
+            </div>
         </div>
-    </div>
-</body>
-
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
 </html>
