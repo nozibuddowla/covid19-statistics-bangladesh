@@ -22,12 +22,9 @@ $data = json_decode($result, true);
     <body>
         <header>
             <div class="overlay">
-                <h1 class="text-center">COVID-19 Statistics <br>of Bangladesh</h1>
+                <h1 class="text-center">COVID-19 Statistics <br> of Bangladesh</h1>
             </div>
         </header>
-        <br>
-        <br>
-        <br>
         <br>
         <div class="card text-center">
             <div class="card-body">
