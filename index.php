@@ -30,7 +30,7 @@ $data = json_decode($result, true);
         <!-- header end -->
         <section>
             <div class="container">
-                <div class="row">
+                <div class="row" style="margin-left: 14.5%;">
                     <div class="card custom-card">
                         <div class="card-body">
                             <h5 class="card-title">Infected:
