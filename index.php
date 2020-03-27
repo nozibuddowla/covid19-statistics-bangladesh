@@ -20,30 +20,52 @@ $data = json_decode($result, true);
         <link rel="shortcut icon" href="img/favicon.jpg">
     </head>
     <body>
+        <!-- header start -->
         <header>
             <div class="overlay">
                 <h1 class="text-center">COVID-19 Statistics <br> of Bangladesh</h1>
             </div>
         </header>
         <br>
-        <div class="card text-center">
-            <div class="card-body">
-                <?php if(!empty($data['confirmed'])): ?>
-                <ul>
-                    <li>Infected:
-                        <?php echo number_format($data['confirmed']['value']) ?>
-                    </li>
-                    <li>Recovered:
-                        <?php echo number_format($data['recovered']['value']) ?>
-                    </li>
-                    <li>Death(s):
-                        <?php echo number_format($data['deaths']['value']) ?>
-                    </li>
-                    <p class="card-text"><small class="text-muted">Last updated <?php echo $data['lastUpdate'] ?> ago</small></p>
-                </ul>
-                <?php endif; ?>
+        <!-- header end -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Infected:
+                            <?php echo number_format($data['confirmed']['value']) ?>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Recovered:
+                            <?php echo number_format($data['recovered']['value']) ?>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Death(s):
+                            <?php echo number_format($data['deaths']['value']) ?>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <p class="card-text">
+                        <small>
+                        Last updated : <?php echo $data['lastUpdate'] ?> ago
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </footer>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery.min.js"></script>
